@@ -1,0 +1,451 @@
+---
+// src/components/DownloadContent.astro
+import Linux from "../assets/linux.svg";
+import MacOS from "../assets/macos.svg";
+import Wip from "/public/wip.svg";
+
+const showWorkInProgress = true;
+
+const downloads = {
+    windows: [
+        {
+            name: "Download for Windows (x64 Installer)",
+            date: "2/6/2025",
+            size: "10.5 MB",
+            url: "#",
+        },
+        {
+            name: "Download for Windows (Portable .zip)",
+            date: "2/6/2025",
+            size: "8.2 MB",
+            url: "#",
+        },
+    ],
+    linux: [
+        {
+            name: "Download for Linux (.deb, amd64)",
+            date: "2/6/2025",
+            size: "9.8 MB",
+            url: "#",
+        },
+        {
+            name: "Download for Linux (.AppImage)",
+            date: "2/6/2025",
+            size: "11.1 MB",
+            url: "#",
+        },
+    ],
+    macos: [
+        {
+            name: "Download for macOS (Universal, dmg)",
+            date: "2/6/2025",
+            size: "9.38 MB",
+            url: "#",
+        },
+        {
+            name: "Download for macOS (Apple Silicon)",
+            date: "2/6/2025",
+            size: "4.68 MB",
+            url: "#",
+        },
+        {
+            name: "Download for macOS (Intel, x86_64)",
+            date: "2/6/2025",
+            size: "4.69 MB",
+            url: "#",
+        },
+    ],
+};
+---
+
+{
+    showWorkInProgress ? (
+        <div class="wip-container">
+            <img src={Wip.src} alt="Work In Progress" width="64" height="64" />
+            <h1>Work In Progress!</h1>
+            <p>
+                This page is currently under construction. Please check back
+                soon for downloads!
+            </p>
+            <a href="/" class="home-link">
+                Go back to the homepage
+            </a>
+        </div>
+    ) : (
+        <div class="download-container">
+            <div class="os-selector">
+                <a href="#" class="os-tab active" data-os="windows">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M3 3h8v8H3zm0 10h8v8H3zm10-10h8v8h-8zm0 10h8v8h-8z"
+                        />
+                    </svg>
+                    <span>Windows</span>
+                </a>
+                <a href="#" class="os-tab" data-os="linux">
+                    <img src={Linux.src} alt="Linux" width="32" height="32" />
+                    <span>Linux</span>
+                </a>
+                <a href="#" class="os-tab" data-os="macos">
+                    <img src={MacOS.src} alt="macOS" width="32" height="32" />
+                    <span>macOS</span>
+                </a>
+            </div>
+
+            <svg
+                class="divider"
+                viewBox="0 0 1200 120"
+                preserveAspectRatio="none"
+            >
+                <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" />
+            </svg>
+
+            <div class="content-wrapper">
+                <section>
+                    <h2>Direct Download</h2>
+                    <p>
+                        For Linux & macOS, copy and paste the following line of
+                        code into the Terminal for direct installation.
+                    </p>
+                    <div class="code-block">
+                        <code>winget install mesa.messenger</code>
+                        <button class="copy-button" aria-label="Copy code">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1Z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="alert-box info">
+                        After installing the program to your computer, a new
+                        command will be available for you to run. That being
+                        "mesa".
+                    </div>
+                    <div class="alert-box warning">
+                        Having issues? You can manually find and download the
+                        raw binaries below.
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Help</h2>
+                    <div class="help-links">
+                        <a href="/docs/introduction">→ Guide on using Mesa</a>
+                        <a href="#">→ Open Issue on Github</a>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Manual Download</h2>
+                    <p>
+                        Use these download links if the installer ever seems to
+                        not work for you. However, when downloading via browser
+                        on macOS you may need to do some extra steps before they
+                        can run without any issues.
+                    </p>
+                    <div class="code-block">
+                        <code>xattr -c /path/to/mesa</code>
+                        <button class="copy-button" aria-label="Copy code">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M19 21H8V7h11m0-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m-3-4H4a2 2 0 0 0-2 2v14h2V3h12V1Z"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="alert-box danger">
+                        Gatekeeper may prevent you from running the binary if
+                        you have not ran the xattr command, by saying that it
+                        cannot check if its malicious or zsh randomly kills it
+                        due to it being quarantined.
+                    </div>
+
+                    <div class="download-table-wrapper">
+                        {Object.entries(downloads).map(([os, files]) => (
+                            <div
+                                class:list={[
+                                    "download-table",
+                                    { hidden: os !== "windows" },
+                                ]}
+                                data-content={os}
+                            >
+                                <div class="table-header">
+                                    <div>Download File</div>
+                                    <div>Date</div>
+                                    <div>Size</div>
+                                </div>
+                                {files.map((file) => (
+                                    <a href={file.url} class="table-row">
+                                        <div>↓ {file.name}</div>
+                                        <div>{file.date}</div>
+                                        <div>{file.size}</div>
+                                    </a>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>
+        </div>
+    )
+}
+
+<style>
+     .wip-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 60vh;
+        padding: 2rem;
+    }
+    .wip-container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+    .wip-container p {
+        color: var(--color-text-dim);
+        font-size: 1.1rem;
+        max-width: 40ch;
+        margin-bottom: 2rem;
+    }
+    .home-link {
+        background-color: var(--color-card-bg);
+        border: 1px solid var(--color-card-border);
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--color-text);
+        transition: all 0.2s ease;
+    }
+    .home-link:hover {
+        background-color: #2a2a2a;
+        border-color: #555;
+    }
+
+    .download-container {
+        max-width: 900px;
+        margin: 2rem auto 4rem auto;
+    }
+
+    .os-selector {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .os-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--color-text-dim);
+        text-decoration: none;
+        padding: 1rem;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s ease;
+    }
+
+    .os-tab:hover {
+        color: var(--color-text);
+    }
+
+    .os-tab.active {
+        color: var(--color-text);
+        border-bottom-color: var(--color-accent);
+    }
+
+    .divider {
+        width: 100%;
+        height: auto;
+        fill: #1c1c1c;
+        margin-bottom: 3rem;
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    p {
+        color: var(--color-text-dim);
+        line-height: 1.7;
+        max-width: 65ch;
+        margin-bottom: 1.5rem;
+    }
+
+    .code-block {
+        position: relative;
+        background-color: var(--color-card-bg);
+        border: 1px solid var(--color-card-border);
+        border-radius: 8px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .code-block code {
+        font-family: var(--font-mono);
+        color: var(--color-text);
+    }
+    .copy-button {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: #333;
+        border: 1px solid #444;
+        color: var(--color-text-dim);
+        border-radius: 6px;
+        padding: 0.25rem;
+        cursor: pointer;
+        display: flex;
+    }
+    .copy-button:hover {
+        background: #444;
+        color: var(--color-text);
+    }
+
+    .alert-box {
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        border-left: 3px solid;
+        margin-bottom: 1rem;
+    }
+    .alert-box.info {
+        background-color: #163531;
+        border-color: #2dd4bf;
+    }
+    .alert-box.warning {
+        background-color: #362f0a;
+        border-color: #facc15;
+    }
+    .alert-box.danger {
+        background-color: #450a0a;
+        border-color: #f87171;
+    }
+
+    .help-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .help-links a {
+        color: var(--color-text-dim);
+    }
+    .help-links a:hover {
+        color: var(--color-text);
+    }
+
+    .download-table {
+        background-color: var(--color-card-bg);
+        border: 1px solid var(--color-card-border);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .table-header,
+    .table-row {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        align-items: center;
+    }
+    .table-header {
+        color: var(--color-text-dim);
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-bottom: 1px solid var(--color-card-border);
+    }
+    .table-row {
+        text-decoration: none;
+        color: var(--color-text);
+        transition: background-color 0.2s ease;
+    }
+    .table-row:not(:last-child) {
+        border-bottom: 1px solid var(--color-card-border);
+    }
+    .table-row:hover {
+        background-color: #2a2a2a;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const osTabs = document.querySelectorAll(".os-tab");
+        const contentPanels =
+            document.querySelectorAll<HTMLElement>("[data-content]");
+        const copyButtons =
+            document.querySelectorAll<HTMLButtonElement>(".copy-button");
+
+        osTabs.forEach((tab) => {
+            tab.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                const clickedTab = e.currentTarget as HTMLElement;
+                const targetOS = clickedTab.dataset.os;
+
+                osTabs.forEach((t) => t.classList.remove("active"));
+                clickedTab.classList.add("active");
+
+                contentPanels.forEach((panel) => {
+                    if (panel.dataset.content === targetOS) {
+                        panel.classList.remove("hidden");
+                    } else {
+                        panel.classList.add("hidden");
+                    }
+                });
+            });
+        });
+
+        copyButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const codeElement =
+                    button.previousElementSibling as HTMLElement | null;
+                if (!codeElement) return;
+
+                const codeText = codeElement.innerText;
+                navigator.clipboard
+                    .writeText(codeText)
+                    .then(() => {
+                        const originalContent = button.innerHTML;
+                        button.innerHTML = "✓";
+                        setTimeout(() => {
+                            button.innerHTML = originalContent;
+                        }, 1500);
+                    })
+                    .catch((err) => {
+                        console.error("Failed to copy text: ", err);
+                    });
+            });
+        });
+    });
+</script>

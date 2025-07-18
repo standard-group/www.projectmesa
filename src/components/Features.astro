@@ -1,0 +1,72 @@
+---
+// src/components/Features.astro
+
+const features = [
+  {
+    title: "Simple",
+    description: "Mesa is so simple you already know how to use it."
+  },
+  {
+    title: "Secure and Private",
+    description: "Your conversations are private. With state-of-the-art E2EE, only you and your recipients can read your messages." // Kept a good description
+  },
+  {
+    title: "Synced",
+    description: "Mesa lets you access your chats from multiple devices."
+  },
+  {
+    title: "Expressive",
+    description: "Mesa lets you customize your messenger, even edit the code for your things (if you can code)."
+  },
+  {
+    title: "Open",
+    description: "Mesa has an open API and source code free for everyone, even the backend is open source."
+  },
+  {
+    title: "Maintained",
+    description: "Mesa is actively maintained and will be updated to fix bugs and add new features."
+  }
+];
+---
+
+<section class="features-grid">
+    {features.map(feature => (
+        <div class="card">
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+        </div>
+    ))}
+</section>
+
+<style>
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        margin: 4rem 0;
+    }
+
+    .card {
+        background-color: var(--color-card-bg);
+        border: 1px solid var(--color-card-border);
+        border-radius: 8px;
+        padding: 1.5rem;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .card h3 {
+        color: var(--color-text-dim);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        font-family: var(--font-mono);
+        font-weight: 400; 
+    }
+    
+    .card p {
+        margin: 0;
+        color: var(--color-text);
+        font-size: 0.95rem;
+    }
+</style>

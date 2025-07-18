@@ -1,0 +1,42 @@
+---
+// src/components/Footer.astro
+---
+
+<footer>
+    <p>
+        The only official site to download official Mesa client is from <a
+            href="https://projectmesa.qzz.io"
+            target="_blank"
+            rel="noopener noreferrer">https://projectmesa.qzz.io</a
+        >. <br />Please make sure to avoid similar-looking sites as they are
+        often malicious sites and are there to mislead to user.
+    </p>
+    <p class="copyright">
+        Copyright © 2025 Standard Group - Site made by techplayz32 for Project
+        Mesa.
+    </p>
+</footer>
+
+<style>
+    footer {
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 0.875rem;
+        color: var(--color-text-dim);
+        border-top: 1px solid var(--color-card-border);
+    }
+    footer p {
+        max-width: 600px;
+        margin: 0 auto 1rem auto;
+    }
+    footer a {
+        color: var(--color-text);
+    }
+    footer a:hover {
+        color: var(--color-accent);
+    }
+    .copyright {
+        font-size: 0.8rem;
+        color: #666;
+    }
+</style>

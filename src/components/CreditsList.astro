@@ -1,0 +1,162 @@
+---
+// src/components/CreditsList.astro
+
+interface Contributor {
+  name: string;
+  avatarUrl: string;
+  subtext?: string; 
+}
+
+const currentDevelopers: Contributor[] = [
+  { name: 'techplayz32', avatarUrl: 'https://avatars.githubusercontent.com/u/154914363?v=4' },
+  { name: 'Maxfm4ik', avatarUrl: 'https://avatars.githubusercontent.com/u/113830259?v=4' },
+];
+
+const specialThanks: Contributor[] = [
+  { name: 'unwrappening', subtext: 'Testing Android builds and giving feedback', avatarUrl: '/avatars/noobie.gif' },
+  { name: 'Aitheryea', subtext: 'Testing Windows builds and giving feedback', avatarUrl: '/avatars/aither.webp' },
+  { name: 'LandonG', subtext: 'Testing Windows builds and giving feedback', avatarUrl: '/avatars/landon.webp' },
+  { name: 'thxf1y',  subtext: 'Testing Android builds and giving feedback', avatarUrl: '/avatars/thxfly.webp' },
+  { name: 'Devourn', subtext: 'Supporting the project', avatarUrl: '/avatars/devourn.webp' },
+];
+
+const thankYou: Contributor[] = [
+  { name: 'Project Briar', subtext: 'Inspiration for this project', avatarUrl: 'https://avatars.githubusercontent.com/u/3389792?v=4' },
+  { name: 'Tauri', subtext: 'Framework for our client', avatarUrl: 'https://avatars.githubusercontent.com/u/54536011?v=4' },
+  { name: 'Astro', subtext: "This website's framework", avatarUrl: 'https://avatars.githubusercontent.com/u/44914786?v=4' },
+  { name: 'Github', subtext: 'Free usage of actions', avatarUrl: '	https://avatars.githubusercontent.com/u/9919?v=4' },
+  { name: 'Photopea', subtext: 'Image editing tool', avatarUrl: 'https://avatars.githubusercontent.com/u/15955558?v=4' },
+  { name: 'Palera1n', subtext: 'Jailbreaking tool & website inspiration', avatarUrl: 'https://avatars.githubusercontent.com/u/114239186?s=200&v=4' },
+];
+
+const translators: Contributor[] = [
+  { name: 'Aitheryea', subtext: 'Arabic', avatarUrl: '/avatars/aither.webp' },
+  { name: 'christiandebussy', subtext: 'Belarussian', avatarUrl: '/avatars/chris.webp' },
+  { name: 'ViperDank', subtext: 'French', avatarUrl: '/avatars/viper.webp' },
+  { name: 'ehmadz', subtext: 'German', avatarUrl: '/avatars/ehmadz.webp' },
+  { name: 'Maxfm4ik', subtext: 'Hungarian & Ukrainian', avatarUrl: '/avatars/njkx.webp' },
+  { name: 'official_telski', subtext: 'Polish', avatarUrl: '/avatars/tl.webp' },
+  { name: 'EBlade', subtext: 'Russian', avatarUrl: '/avatars/eblade.webp' },
+  { name: 'Devourn', subtext: 'Slovak', avatarUrl: '/avatars/devourn.webp' },
+  { name: 'rub3nve', subtext: 'Spanish', avatarUrl: '/avatars/rub3nv.webp' },
+  { name: 'Yang', subtext: 'Spanish', avatarUrl: '/avatars/potatos1.webp' },
+  { name: 'Filidutt', subtext: 'Swedish', avatarUrl: '/avatars/filldutt.webp' },
+];
+
+const sections = [
+    { title: "Current Developers", members: currentDevelopers },
+    { title: "Special Thanks To", members: specialThanks },
+    { title: "Thank You", members: thankYou },
+    { title: "Translations (Client)", members: translators },
+];
+---
+
+<div class="credits-container">
+    <div class="intro">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+        </svg>
+        <p>This tool wouldn't be possible without these people/tools, thank you to everyone involved in the Project Mesa.</p>
+    </div>
+
+    {sections.map(section => (
+        <section class="credits-section">
+            <h2 class="section-title">{section.title}</h2>
+            <div class="credits-grid">
+                {section.members.map(member => (
+                    <a href="#" class="contributor-pill" target="_blank" rel="noopener noreferrer">
+                        <img src={member.avatarUrl} alt=`Avatar of ${member.name}` class="contributor-avatar" />
+                        <div class="contributor-info">
+                            <span class="contributor-name">{member.name}</span>
+                            {member.subtext && <span class="contributor-subtext">{member.subtext}</span>}
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </section>
+    ))}
+</div>
+
+<style>
+    .credits-container {
+        max-width: 900px;
+        margin: 2rem auto 4rem auto;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .heart-icon {
+        color: #db8d8d;
+        margin-bottom: 1rem;
+    }
+
+    .intro p {
+        font-size: 1.125rem;
+        color: var(--color-text-dim);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .credits-section {
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        color: var(--color-text);
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+    }
+
+    .credits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .contributor-pill {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background-color: var(--color-card-bg);
+        border: 1px solid var(--color-card-border);
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .contributor-pill:hover {
+        border-color: #555;
+        background-color: #2a2a2a;
+        transform: translateY(-2px);
+    }
+
+    .contributor-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .contributor-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.3;
+    }
+    
+    .contributor-name {
+        color: var(--color-text);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .contributor-subtext {
+        font-size: 0.8rem;
+        color: var(--color-text-dim);
+    }
+</style>

@@ -1,0 +1,138 @@
+---
+// src/components/Hero.astro
+import Icon from "../assets/mesacat.svg";
+import Screen from "../assets/sreen.png";
+---
+
+<section class="hero-section">
+    <div class="hero-content">
+        <div class="title-logo">
+            <img
+                src={Icon.src}
+                class="icon"
+                alt="Mesa Icon"
+                width="60"
+                height="60"
+            />
+            <span class="logo-text">mesa</span>
+        </div>
+        <h1>A modern, federated instant messenger for everyone.</h1>
+        <p>
+            Connect with anyone, on any server. Secure, private, and open
+            source.
+        </p>
+        <div class="buttons">
+            <a href="/download" class="btn btn-primary"> ↓ Download </a>
+            <a href="#" class="btn btn-secondary"> View on Github › </a>
+        </div>
+    </div>
+    <div class="hero-terminal">
+        <img
+            src={Screen.src}
+            alt="Mesa Terminal Screenshot"
+            class="terminal-image"
+        />
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        padding: 4rem 0;
+    }
+
+    .btn-primary {
+        background-color: #f1f5f9;
+        color: #111;
+    }
+    .btn-primary:hover {
+        background-color: #e2e8f0;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: var(--color-text);
+        border: 1px solid var(--color-card-border);
+    }
+    .btn-secondary:hover {
+        background-color: var(--color-card-bg);
+        border-color: #555;
+    }
+
+    .hero-terminal {
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .terminal-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            grid-template-columns: 1fr;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .hero-terminal {
+            order: -1;
+            margin-bottom: 2.5rem;
+        }
+        .title-logo {
+            justify-content: center;
+        }
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        .hero-content p {
+            max-width: 100%;
+            font-size: 1rem;
+        }
+        .buttons {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.2s ease;
+    }
+    .title-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .logo-text {
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: var(--font-mono);
+    }
+    .hero-content h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    .hero-content p {
+        font-size: 1.125rem;
+        color: var(--color-text-dim);
+        max-width: 90%;
+        margin-bottom: 2rem;
+    }
+</style>
