@@ -60,10 +60,10 @@ If you are a resident of the **EU/EEA** or **California**, you have the right to
 
 We do **not sell personal data**. We also do not offer financial incentives for data collection.
 
-To exercise your rights, please contact us at [admin@projectmesa.qzz.io](mailto:admin@projectmesa.qzz.io). We will respond within the timeframes required by law.
+To exercise your rights, please contact us at [volumetech@getgoogleoff.me](mailto:volumetech@getgoogleoff.me). We will respond within the timeframes required by law.
 
 ## 10. Policy Updates
 We may revise this Privacy Policy periodically. Material changes will be posted with a revised effective date.
 
 ## 11. Contact
-For data inquiries or privacy concerns, contact us at: [admin@projectmesa.qzz.io](mailto:admin@projectmesa.qzz.io)
+For data inquiries or privacy concerns, contact us at: [volumetech@getgoogleoff.me](mailto:volumetech@getgoogleoff.me)

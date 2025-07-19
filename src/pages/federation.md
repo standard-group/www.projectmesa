@@ -29,4 +29,4 @@ Operators must respect the encryption and metadata boundaries of the protocol. E
 You may use the client/server software under its open-source license, but must not imply official endorsement or affiliation without written permission.
 
 ## 6. Contact
-For coordination, defederation notices, or abuse reports related to federation with our infrastructure: [admin@projectmesa.qzz.io]
+For coordination, defederation notices, or abuse reports related to federation with our infrastructure: [volumetech@getgoogleoff.me](mailto:volumetech@getgoogleoff.me)
