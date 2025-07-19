@@ -11,6 +11,11 @@
         >. <br />Please make sure to avoid similar-looking sites as they are
         often malicious sites and are there to mislead to user.
     </p>
+    <nav class="footer-links">
+        <a href="/terms">Terms of Service</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/federation">Federation Rules</a>
+    </nav>
     <p class="copyright">
         Copyright © 2025 Standard Group - Site made by techplayz32 for Project
         Mesa.
@@ -35,6 +40,23 @@
     footer a:hover {
         color: var(--color-accent);
     }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+        color: var(--color-text-dim);
+        font-size: 0.9rem;
+    }
+    .footer-links a:hover {
+        color: var(--color-text);
+        text-decoration: underline;
+    }
+
     .copyright {
         font-size: 0.8rem;
         color: #666;

@@ -10,13 +10,13 @@ interface Props {
 
 const {
 	title,
-	description = "Cute federated instant messenger",
-	image = "/favicon.svg",
+	description = "Mesa is a cute, modern, federated instant messenger for everyone.",
+	image = "/social-preview.png",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
-const socialImageURL = new URL(image, Astro.site);
+const siteURL = Astro.site || Astro.url.origin;
+const canonicalURL = new URL(Astro.url.pathname, siteURL);
+const socialImageURL = new URL(image, siteURL);
 ---
 
 <!doctype html>
@@ -30,7 +30,8 @@ const socialImageURL = new URL(image, Astro.site);
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#121212" />
 
-		<!-- open graph / facebook / discord meta tags -->
+		<link rel="canonical" href={canonicalURL} />
+
 		<meta property="og:title" content={`${title} | Mesa`} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />
@@ -39,7 +40,6 @@ const socialImageURL = new URL(image, Astro.site);
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Mesa" />
 
-		<!-- twitter meta tags -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={`${title} | Mesa`} />
 		<meta name="twitter:description" content={description} />

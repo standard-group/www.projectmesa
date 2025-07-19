@@ -1,0 +1,89 @@
+---
+// src/layouts/LegalLayout.astro
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const { frontmatter } = Astro.props;
+const { title, lastUpdated } = frontmatter;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="robots" content="noindex, nofollow" />
+	</head>
+	<body>
+		<div class="container">
+			<Header />
+			<main class="legal-content">
+				<article class="prose">
+					<h1>{title}</h1>
+					<p class="last-updated">Last Updated: {lastUpdated}</p>
+					<hr />
+					<slot />
+				</article>
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+<style>
+	.legal-content {
+		max-width: 80ch; /* Optimal width for reading text */
+		margin: 4rem auto;
+		padding: 0 1rem;
+	}
+
+	.prose h1 {
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.prose .last-updated {
+		color: var(--color-text-dim);
+		font-style: italic;
+		margin-bottom: 2rem;
+	}
+
+	.prose hr {
+		border: 0;
+		border-top: 1px solid var(--color-card-border);
+		margin-bottom: 2rem;
+	}
+
+	/* Styling for rendered markdown content */
+	.prose h2 {
+		font-size: 1.75rem;
+		margin-top: 2.5rem;
+		margin-bottom: 1rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--color-card-border);
+	}
+
+	.prose p,
+	.prose ul,
+	.prose ol {
+		line-height: 1.7;
+		color: var(--color-text-dim);
+	}
+
+	.prose a {
+		color: var(--color-accent);
+		text-decoration: underline;
+	}
+
+	.prose strong {
+		color: var(--color-text);
+	}
+
+	.prose ul, .prose ol {
+		padding-left: 1.5rem;
+	}
+</style>
