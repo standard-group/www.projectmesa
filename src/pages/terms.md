@@ -34,4 +34,4 @@ The Service is provided "as is" without warranties of any kind. We disclaim all 
 We may update these Terms from time to time. Continued use of the Service after updates constitutes acceptance of the revised Terms.
 
 ## 8. Contact
-If you have any questions or concerns, please contact: [volumetech@getgoogleoff.me](mailto:volumetech@getgoogleoff.me)
+If you have any questions or concerns, please contact: [admin@projectmesa.qzz.io](mailto:admin@projectmesa.qzz.io)
